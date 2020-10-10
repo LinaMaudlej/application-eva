@@ -26,6 +26,8 @@ public class EvaControl extends AppCompatActivity {
     BluetoothAdapter my_bluetooth = null;
     BluetoothSocket bluetooth_socket = null;
     Set<BluetoothDevice> paired_devices;
+    //hc-05 00001101-0000-1000-8000-00805f9b34f
+    //hc06- 00001101-0000-1000-8000-00805F9B34FB
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //uniq id for hc05
 
     @Override
