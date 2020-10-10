@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Eva Application</string>
+    <string name="app_name">Eva</string>
+    <string name="title_activity_eva_control">Eva Control</string>
+    <string name="hello_world">Bluetooth Address</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
