@@ -43,7 +43,54 @@ public class EvaControl extends AppCompatActivity {
             connect_bt_and_test();
         } catch (Exception e) { }
 
-        forward.setOnClickListener(v-> {
+
+        forward.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("f"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
+        });
+        backward.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("b"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
+        });
+
+        right.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("r"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
+        });
+
+        left.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("l"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
+        });
+        /*forward.setOnClickListener(v-> {
             send_byte_bluetooth("f"); //forward
         });
 
@@ -56,7 +103,7 @@ public class EvaControl extends AppCompatActivity {
         });
         left.setOnClickListener(v-> {
             send_byte_bluetooth("l");
-        });
+        });*/
     }
 
    //check led on/off.
@@ -110,3 +157,4 @@ public class EvaControl extends AppCompatActivity {
         }
     }
 }
+
