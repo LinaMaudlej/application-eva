@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
+import io.github.controlwear.virtual.joystick.android.JoystickView;
+
 public class EvaControl extends AppCompatActivity {
     //for bluetooth
     Button led_on_off;
@@ -43,6 +45,15 @@ public class EvaControl extends AppCompatActivity {
             connect_bt_and_test();
         } catch (Exception e) { }
 
+        JoystickView joystick = (JoystickView) findViewById(R.id.joystickview);
+        joystick.setOnMoveListener(new JoystickView.OnMoveListener() {
+            @Override
+            public void onMove(int angle, int strength) {
+                // do whatever you want
+                send_byte_bluetooth(Integer.toString(angle));
+                send_byte_bluetooth(Integer.toString(strength));
+            }
+        });
 
         forward.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -90,20 +101,6 @@ public class EvaControl extends AppCompatActivity {
                 return true;
             }
         });
-        /*forward.setOnClickListener(v-> {
-            send_byte_bluetooth("f"); //forward
-        });
-
-        backward.setOnClickListener(v-> {
-            send_byte_bluetooth("b");
-        });
-
-        right.setOnClickListener(v-> {
-            send_byte_bluetooth("r");
-        });
-        left.setOnClickListener(v-> {
-            send_byte_bluetooth("l");
-        });*/
     }
 
    //check led on/off.
