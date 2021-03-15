@@ -10,10 +10,10 @@
         android:id="@+id/forward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="32dp"
         android:text="Forward"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,10 +24,10 @@
         android:text="RIGHT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <Button
         android:id="@+id/left"
@@ -36,10 +36,10 @@
         android:text="LEFT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <Button
         android:id="@+id/backward"
@@ -48,10 +48,10 @@
         android:text="Backward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forward"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintVertical_bias="0.079" />
 
     <Button
         android:id="@+id/led_on_off"
@@ -70,7 +70,6 @@
         android:id="@+id/bluetooth_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="44dp"
         android:layout_marginBottom="92dp"
@@ -84,10 +83,29 @@
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@mipmap/eva" />
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        android:id="@+id/joystickview"
+        android:layout_width="441dp"
+        android:layout_height="410dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        app:JV_backgroundColor="#009688"
+        app:JV_backgroundSizeRatio="45%"
+        app:JV_borderColor="#00796B"
+        app:JV_borderWidth="8dp"
+        app:JV_buttonColor="#E91E63"
+        app:JV_buttonSizeRatio="17%"
+        app:JV_fixedCenter="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.548"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

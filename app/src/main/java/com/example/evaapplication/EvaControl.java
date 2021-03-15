@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
+import io.github.controlwear.virtual.joystick.android.JoystickView;
+
 public class EvaControl extends AppCompatActivity {
     //for bluetooth
     Button led_on_off;
@@ -43,19 +45,61 @@ public class EvaControl extends AppCompatActivity {
             connect_bt_and_test();
         } catch (Exception e) { }
 
-        forward.setOnClickListener(v-> {
-            send_byte_bluetooth("f"); //forward
+        JoystickView joystick = (JoystickView) findViewById(R.id.joystickview);
+        joystick.setOnMoveListener(new JoystickView.OnMoveListener() {
+            @Override
+            public void onMove(int angle, int strength) {
+                // do whatever you want
+                send_byte_bluetooth(Integer.toString(angle));
+                send_byte_bluetooth(Integer.toString(strength));
+            }
         });
 
-        backward.setOnClickListener(v-> {
-            send_byte_bluetooth("b");
+        forward.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("f"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
+        });
+        backward.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("b"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
         });
 
-        right.setOnClickListener(v-> {
-            send_byte_bluetooth("r");
+        right.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("r"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
         });
-        left.setOnClickListener(v-> {
-            send_byte_bluetooth("l");
+
+        left.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    send_byte_bluetooth("l"); //forward
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    send_byte_bluetooth("s"); //stop
+                }
+                return true;
+            }
         });
     }
 
@@ -110,3 +154,4 @@ public class EvaControl extends AppCompatActivity {
         }
     }
 }
+
