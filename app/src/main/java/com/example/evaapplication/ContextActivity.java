@@ -9,17 +9,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity2 extends AppCompatActivity {
+public class ContextActivity extends AppCompatActivity {
     BottomNavigationView navView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_context);
          navView = findViewById(R.id.nav_view);
          navView.setOnNavigationItemReselectedListener(navigationItemReselectedListener);
 
@@ -29,20 +25,20 @@ private  BottomNavigationView.OnNavigationItemReselectedListener navigationItemR
     public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()){
                 case R.id.navigation_home:
-                    Intent mainIntent = new Intent(MainActivity2.this,MainActivity.class);
+                    Intent mainIntent = new Intent(ContextActivity.this,MainActivity.class);
                     startActivity(mainIntent);
                     break;
                 case R.id.navigation_settings:
-                    Intent settingsIntent = new Intent(MainActivity2.this,SettingsActivity.class);
+                    Intent settingsIntent = new Intent(ContextActivity.this,SettingsActivity.class);
                     startActivity(settingsIntent);
                     break;
                 case R.id.navigation_notifications:
-                    Intent notificationIntent = new Intent(MainActivity2.this,NotificationsActivity.class);
+                    Intent notificationIntent = new Intent(ContextActivity.this,NotificationsActivity.class);
                     startActivity(notificationIntent);
                     break;
                 case R.id.navigation_logout:
                     FirebaseAuth.getInstance().signOut();
-                    Intent logoutIntent = new Intent(MainActivity2.this,Registration.class);
+                    Intent logoutIntent = new Intent(ContextActivity.this,Registration.class);
                     startActivity(logoutIntent);
                     finish();
                     break;
