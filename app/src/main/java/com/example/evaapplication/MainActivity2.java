@@ -42,7 +42,7 @@ private  BottomNavigationView.OnNavigationItemReselectedListener navigationItemR
                     break;
                 case R.id.navigation_logout:
                     FirebaseAuth.getInstance().signOut();
-                    Intent logoutIntent = new Intent(MainActivity2.this,MainActivity.class);
+                    Intent logoutIntent = new Intent(MainActivity2.this,Registration.class);
                     startActivity(logoutIntent);
                     finish();
                     break;
