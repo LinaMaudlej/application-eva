@@ -122,8 +122,6 @@ public class Registration extends AppCompatActivity {
                 codeText.setVisibility(View.VISIBLE);
                 loadingBar.dismiss();
                 Toast.makeText(Registration.this,"Code has been sent, please check..", Toast.LENGTH_SHORT).show();
-
-
             }
         };
     }
